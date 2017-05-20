@@ -9,15 +9,15 @@
       "tsc:w": "tsc -w"
   },
   "engines": {
-    "node": "5.9.1"
+    "node": "*"
   },
   "license" : "MIT",
   "repository" :
   { "type" : "git",
-    "url" : "https://github.com/creativetimofficial/light-bootstrap-dashboard-angular.git"
+    "url" : "https://github.com/indeu/light-bootstrap-dashboard.git"
   },
   "bugs":{
-      "url": "https://github.com/creativetimofficial/light-bootstrap-dashboard-angular/issues"
+      "url": "https://github.com/indeu/light-bootstrap-dashboard/issues"
   },
   "dependencies": {
     "@angular/common": "~2.2.2",
