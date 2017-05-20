@@ -42,7 +42,7 @@
     "zone.js": "0.7.2",
     "@types/node": "^6.0.45",
     "typescript": "^2.0.3",
-    "compression": "^1.6.2",
+    "compression": "^1.6.2"
   },
   "devDependencies": {
     "@types/chartist": "~0.9.33",
