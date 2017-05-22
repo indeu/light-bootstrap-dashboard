@@ -42,7 +42,6 @@
     "@angular/upgrade": "~2.2.2",
     "@types/core-js": "0.9.35",
     "angular-in-memory-web-api": "~0.1.13",
-    "ng-chartist": "~0.10.1",
     "@agm/core": "~0.16.0",
     "chartist": "~0.9.8",
     "core-js": "2.4.1",
