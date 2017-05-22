@@ -9,7 +9,7 @@
       "tsc:w": "tsc -w"
   },
   "engines": {
-    "node": "*"
+    "node": "~6.0.0"
   },
   "license" : "MIT",
   "repository" :
