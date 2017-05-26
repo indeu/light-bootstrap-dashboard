@@ -58,25 +58,32 @@ var initDb = function(callback) {
   });
 };
 
-app.get('/', function (req, res) {
-  // try to initialize the db on every request if it's not already
-  // initialized.
-  if (!db) {
-    initDb(function(err){});
-  }
-  if (db) {
-    var col = db.collection('counts');
-    // Create a document with request IP and current time of request
-    col.insert({ip: req.ip, date: Date.now()});
-    // col.count(function(err, count){
-    //   res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
-    // });
-  } else {
-    //res.render('index.html', { pageCountMessage : null});
-  }
+// app.get('/', function (req, res) {
+//   // try to initialize the db on every request if it's not already
+//   // initialized.
+//   if (!db) {
+//     initDb(function(err){});
+//   }
+//   if (db) {
+//     var col = db.collection('counts');
+//     // Create a document with request IP and current time of request
+//     col.insert({ip: req.ip, date: Date.now()});
+//     // col.count(function(err, count){
+//     //   res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
+//     // });
+//   } else {
+//     //res.render('index.html', { pageCountMessage : null});
+//   }
 
-  res.render('index.html');
-});
+//   res.render('index.html');
+// });
+
+
+app.use(express.static(__dirname + '/'));
+
+app.get('/', function(req, res){
+   res.sendFile(path.join(__dirname, '/views/index.html'));
+  });
 
 app.get('/pagecount', function (req, res) {
   // try to initialize the db on every request if it's not already
@@ -98,8 +105,6 @@ app.use(function(err, req, res, next){
   console.error(err.stack);
   res.status(500).send('Something bad happened!');
 });
-
-app.use(express.static(__dirname + '/public'));
 
 initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
