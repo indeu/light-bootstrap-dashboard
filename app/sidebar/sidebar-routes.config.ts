@@ -8,5 +8,5 @@ export const ROUTES: RouteInfo[] = [
     { path: 'icons', title: 'Icons', menuType: MenuType.LEFT, icon:'pe-7s-science' },
     { path: 'maps', title: 'Maps', menuType: MenuType.LEFT, icon:'pe-7s-map-marker' },
     { path: 'notifications', title: 'Notifications', menuType: MenuType.LEFT, icon:'pe-7s-bell' },
-    { path: 'upgrade', title: 'Upgrade to PRO', menuType: MenuType.LEFT, icon:'pe-7s-rocket' }
+    //{ path: 'upgrade', title: 'Upgrade to PRO', menuType: MenuType.LEFT, icon:'pe-7s-rocket' }
 ];
