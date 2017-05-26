@@ -4,11 +4,13 @@
   "version": "1.1.1",
   "main": "server.js",
   "scripts": {
-      "start": "node server.js && tsc && concurrently \"tsc -w\" \"lite-server\" ",
-      "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js",
+      "start": "node server.js",
+      "test": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
       "lite": "lite-server",
+      "postinstall": "typings install",
       "tsc": "tsc",
-      "tsc:w": "tsc -w"
+      "tsc:w": "tsc -w",
+      "typings": "typings"
   },
   "engines": {
     "node": "*",
@@ -31,6 +33,9 @@
     "mongodb": "^2.1.16",
     "morgan": "^1.7.0",
     "object-assign":"4.1.0",
+    "@angular/platform-server": "2.0.0-rc.1",
+	  "@angular/router-deprecated": "2.0.0-rc.1",
+    "bootstrap": "^3.3.6",
     "@angular/common": "~2.2.2",
     "@angular/compiler": "~2.2.2",
     "@angular/core": "~2.2.2",
@@ -68,6 +73,6 @@
     "express": "~4.9.8",
     "nodemon": "^1.11.0",
     "systemjs": "0.19.39",
-    "concurrently": "^3.0.0"
+    "typings":"^1.0.4"
   }
 }
