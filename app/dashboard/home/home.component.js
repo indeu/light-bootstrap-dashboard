@@ -9,9 +9,39 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var initDemo = require("../../../assets/js/charts.js");
 var initNotify = require("../../../assets/js/notify.js");
+var http_1 = require("@angular/http");
 var HomeComponent = (function () {
     function HomeComponent() {
+        this.contentHeaders = new http_1.Headers();
     }
+    HomeComponent.prototype.setDevProd = function (num) {
+        if (num == 0) {
+            var body = JSON.stringify({});
+            this.contentHeaders.append('Accept', 'application/json');
+            this.contentHeaders.append('Content-Type', 'application/json');
+            this.http.post('http://nodejs-mongo-persistent-checkmd.7e14.starter-us-west-2.openshiftapps.com/selectPushServer/dev', body, { headers: this.contentHeaders })
+                .subscribe(function (response) {
+                alert(response.json().text());
+                console.log(response.json().text());
+            }, function (error) {
+                alert(error.text());
+                console.log(error.text());
+            });
+        }
+        else {
+            var body = JSON.stringify({});
+            this.contentHeaders.append('Accept', 'application/json');
+            this.contentHeaders.append('Content-Type', 'application/json');
+            this.http.post('http://nodejs-mongo-persistent-checkmd.7e14.starter-us-west-2.openshiftapps.com/selectPushServer/dist', body, { headers: this.contentHeaders })
+                .subscribe(function (response) {
+                alert(response.json().text());
+                console.log(response.json().text());
+            }, function (error) {
+                alert(error.text());
+                console.log(error.text());
+            });
+        }
+    };
     HomeComponent.prototype.ngOnInit = function () {
         // $.getScript('../../../assets/js/bootstrap-checkbox-radio-switch.js');
         // $.getScript('../../../assets/js/light-bootstrap-dashboard.js');
