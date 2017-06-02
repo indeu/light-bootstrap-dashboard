@@ -82,7 +82,7 @@
                                         <td>
                                             <label class="radio">
                                                 <!--<input type="checkbox" value="" data-toggle="checkbox">-->
-                                                <input #male name="gender" type="radio" value="development" (click)="setDevProd(0)" />
+                                                <input #male name="gender" type="checkbox" value="development" (click)="setDevProd(0)" />
                                             </label>
                                         </td>
                                         <td>Turn development push notification</td>
@@ -99,7 +99,7 @@
                                         <td>
                                             <label class="radio">
                                                 <!--<input type="checkbox" value="" data-toggle="checkbox" [checked]="displayValue" (click)="setDisplayValue($event.target.checked)">-->
-                                                <input #female name="gender" type="radio"  value="production" (click)="setDevProd(1)" />
+                                                <input #female name="gender" type="checkbox"  value="production" (click)="setDevProd(1)" />
                                             </label>
                                         </td>
                                         <td>Turn production push notification</td>
