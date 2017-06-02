@@ -60,7 +60,7 @@
     "systemjs-builder": "^0.15.17",
     "typescript": "^2.0.3",
     "yargs": "^4.7.1",
-    "zone.js": "0.7.2"
+    "zone.js": "0.8.11"
   },
   "devDependencies": {
     "@types/chartist": "~0.9.33",
