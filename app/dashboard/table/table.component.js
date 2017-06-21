@@ -28,7 +28,7 @@ var TableComponent = (function () {
         // new Device(
         // '33.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf')
         // ];
-        this.http.request('http://nodejs-mongo-persistent-checkmd.7e14.starter-us-west-2.openshiftapps.com/getalldb').subscribe(function (res) {
+        this.http.request('http://aaaaaa').subscribe(function (res) {
             _this.data = res.json();
             console.log('data : ' + _this.data);
             //this.devices = this.data['db'];

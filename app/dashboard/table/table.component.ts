@@ -81,7 +81,7 @@ export class TableComponent{
         // '33.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf')
         // ];
 
-        this.http.request('http://nodejs-mongo-persistent-checkmd.7e14.starter-us-west-2.openshiftapps.com/getalldb') .subscribe((res: Response) => {
+        this.http.request('http://aaaaaa') .subscribe((res: Response) => {
             this.data = res.json();
 
             console.log('data : ' + this.data );
