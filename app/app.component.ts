@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 @Component({
     selector: 'my-app',
@@ -9,6 +9,7 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 
 export class AppComponent implements OnInit{
     location: Location;
+
     constructor(location:Location) {
         this.location = location;
     }

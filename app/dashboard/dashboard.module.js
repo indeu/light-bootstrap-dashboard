@@ -17,7 +17,7 @@ var DashboardModule = (function () {
 DashboardModule = __decorate([
     core_1.NgModule({
         imports: [
-            router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES)
+            router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES),
         ],
         declarations: [dashboard_routes_1.MODULE_COMPONENTS]
     })

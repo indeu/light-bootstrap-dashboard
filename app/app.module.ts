@@ -13,8 +13,11 @@ import { NavbarModule} from './shared/navbar/navbar.module';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
+import { DeviceListComponent } from './dashboard/table/deviceList.component';
+
 @NgModule({
     imports:      [
+        HttpModule,
         BrowserModule,
         DashboardModule,
         SidebarModule,
@@ -22,7 +25,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         FooterModule,
         RouterModule.forRoot([])
     ],
-    declarations: [ AppComponent, DashboardComponent ],
+    declarations: [ AppComponent, DashboardComponent, DeviceListComponent ],
     providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap:    [ AppComponent ]
 })
