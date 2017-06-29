@@ -12,18 +12,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var DeviceListComponent = (function () {
     function DeviceListComponent() {
+        //  this.devices = [
+        //     new Device(
+        //     '11.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf'),
+        //     new Device(
+        //     '22.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf'),
+        //     new Device(
+        //     '33.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf')
+        // ]; 
+        this.onDeviceSelected = new core_1.EventEmitter();
     }
-    //devices :Device[];
-    // constructor() { this.deviceList = [
-    //     new Device(
-    //     '11.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf'),
-    //     new Device(
-    //     '22.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf'),
-    //     new Device(
-    //     '33.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf')
-    //     ]; 
-    //     this.onDeviceSelected = new EventEmitter();
-    // }
     DeviceListComponent.prototype.deviceWasSelected = function (device) {
         console.log('Product clicked: ', device);
     };
@@ -39,9 +37,11 @@ __decorate([
 ], DeviceListComponent.prototype, "onDeviceSelected", void 0);
 DeviceListComponent = __decorate([
     core_1.Component({
+        moduleId: module.id,
         selector: 'device-list',
-        templateUrl: '/app/dashboard/table/deviceList.component.html'
-    })
+        templateUrl: 'deviceList.component.html'
+    }),
+    __metadata("design:paramtypes", [])
 ], DeviceListComponent);
 exports.DeviceListComponent = DeviceListComponent;
 //# sourceMappingURL=deviceList.component.js.map

@@ -8,6 +8,7 @@ var notifications_component_1 = require("./notifications/notifications.component
 var typography_component_1 = require("./typography/typography.component");
 var maps_component_1 = require("./maps/maps.component");
 var upgrade_component_1 = require("./upgrade/upgrade.component");
+var deviceList_component_1 = require("./table/deviceList.component");
 exports.MODULE_ROUTES = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: home_component_1.HomeComponent },
@@ -27,6 +28,7 @@ exports.MODULE_COMPONENTS = [
     notifications_component_1.NotificationsComponent,
     typography_component_1.TypographyComponent,
     maps_component_1.MapsComponent,
-    upgrade_component_1.UpgradeComponent
+    upgrade_component_1.UpgradeComponent,
+    deviceList_component_1.DeviceListComponent
 ];
 //# sourceMappingURL=dashboard.routes.js.map

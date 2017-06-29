@@ -11,32 +11,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-// import { DeviceListComponent } from './deviceList.component';
-// @NgModule({ 
-//     declarations: [ DeviceListComponent ]
-// })
+var http_2 = require("@angular/http");
+var device_model_1 = require("./device.model");
 var TableComponent = (function () {
     function TableComponent(http) {
-        //this.http = http;
         var _this = this;
         this.http = http;
-        // this.devices = [
-        // new Device(
-        // '11.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf'),
-        // new Device(
-        // '22.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf'),
-        // new Device(
-        // '33.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf')
-        // ];
-        this.http.request('http://aaaaaa').subscribe(function (res) {
-            _this.data = res.json();
-            console.log('data : ' + _this.data);
-            //this.devices = this.data['db'];
+        this.devices = [];
+        this.http = http;
+        this.onDeviceSelected = new core_1.EventEmitter();
+        var link = 'http://nodejs-mongo-persistent-checkmd.7e14.starter-us-west-2.openshiftapps.com/';
+        var apiLink = link + 'getalldb';
+        var headers = new http_2.Headers({ 'Access-Control-Allow-Origin': '*', 'Content-type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        console.log('get http : ' + apiLink);
+        //this.http.get('http://.../test.php') .subscribe(data => data.json());
+        var req = this.http.get(apiLink); //, options);
+        req.subscribe(function (response) {
+            _this.data = response.json();
             _this.loading = false;
-        });
+            ;
+            console.log('this.data : ' + _this.data['db']);
+            var obj = JSON.parse(_this.data['db'].toString());
+            console.log(obj);
+            for (var i = 0; i < obj.length; i++) {
+                _this.devices.push(new device_model_1.Device(obj[i].addr.replace("1", "*").replace("3", "*").replace("4", "*").replace("2", "*").replace("22", "*").replace("9.", "*."), obj[i].name, obj[i].startTime, obj[i].endTime, obj[i].status, obj[i].token));
+            }
+        }, function (err) { return _this.handleErrorObservable(err); });
     }
+    TableComponent.prototype.handleErrorObservable = function (error) {
+        console.error(error.message || error);
+        return null;
+    };
+    TableComponent.prototype.deviceWasSelected = function (device) {
+        console.log('Product clicked: ', device);
+    };
     return TableComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Array)
+], TableComponent.prototype, "deviceList", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], TableComponent.prototype, "onDeviceSelected", void 0);
 TableComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

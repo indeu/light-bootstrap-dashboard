@@ -3,7 +3,7 @@ export class Device {
         public addr: string,
         public name: string,
         public startTime: string,
-        public dueTime: string,
+        public endTime: string,
         public status: string,
         public token: string
     )

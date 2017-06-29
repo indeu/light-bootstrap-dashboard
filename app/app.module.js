@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var common_1 = require("@angular/common");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
@@ -16,8 +17,8 @@ var dashboard_module_1 = require("./dashboard/dashboard.module");
 var sidebar_module_1 = require("./sidebar/sidebar.module");
 var footer_module_1 = require("./shared/footer/footer.module");
 var navbar_module_1 = require("./shared/navbar/navbar.module");
-var common_1 = require("@angular/common");
-var deviceList_component_1 = require("./dashboard/table/deviceList.component");
+var common_2 = require("@angular/common");
+//import { DeviceListComponent } from './dashboard/table/deviceList.component';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,6 +27,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [
+            common_1.CommonModule,
             http_1.HttpModule,
             platform_browser_1.BrowserModule,
             dashboard_module_1.DashboardModule,
@@ -34,8 +36,8 @@ AppModule = __decorate([
             footer_module_1.FooterModule,
             router_1.RouterModule.forRoot([])
         ],
-        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, deviceList_component_1.DeviceListComponent],
-        providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
+        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
+        providers: [{ provide: common_2.LocationStrategy, useClass: common_2.HashLocationStrategy }],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

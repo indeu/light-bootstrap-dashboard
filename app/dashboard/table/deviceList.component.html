@@ -1,8 +1,34 @@
-<tr>
-    <td>123123</td>
-    <td>Kim</td>
-    <td>$36,738</td>
-    <td>Niger</td>
-    <td>Oud-Turnhout</td>
-    <td>Oud-Turnhout</td>
-</tr>
+
+
+
+
+
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>CameraName</th>
+            <th>StartTime</th>
+            <th>EndTime</th>
+            <th>Status</th>
+            <th>Token</th>
+        </tr>
+    </thead>                
+
+    <tbody>
+
+        <tr *ngFor="let dev of deviceList">
+            
+            <td><font size="2"> {{ dev.addr }} </font></td>
+            <td><font size="2"> {{ dev.name }} </font></td>
+            <td><font size="2"> {{ dev.startTime }} </font></td>
+            <td><font size="2"> {{ dev.endTime }} </font></td>
+            <td><font size="2"> {{ dev.status }} </font></td>
+            
+            <td><font size="1"> {{ dev.token }} </font></td>
+        <tr>
+
+    </tbody>
+                                
+</table>

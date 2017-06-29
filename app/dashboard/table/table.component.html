@@ -8,7 +8,8 @@
                         <p class="category">check the push notification token and device name</p>
                     </div>
                     <div class="content table-responsive table-full-width">
-                        <table class="table table-hover table-striped">
+                        
+                        <!--<table class="table table-hover table-striped">
                             <thead>
                                 <tr>
                                     <th>Address</th>
@@ -18,34 +19,43 @@
                                     <th>Status</th>
                                     <th>Token</th>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <!--<div class="table-cmp">-->
-                                    <!--<device-list
-                                        [deviceList]="devices"
-                                        (onDeviceSelected)="deviceWasSelected($event)">
-                                    </device-list>-->
-                                <!--</div>-->
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
+                            </thead>                
+
+                            <tbody>-->
+                                <!--<template [ngForOf]="devices">-->
+                                    <!--<tr *ngFor= "let dev of devices">
+                                        <td> {{ dev.addr }} </td>
+                                        <td> {{ dev.CameraName }} </td>
+                                        <td>$36,738</td>
+                                        <td>Niger</td>
+                                        <td>Oud-Turnhout</td>
+                                        <td>Oud-Turnhout</td>
+                                    </tr>-->
+                                <!--</template>-->
+                                
+                                <device-list 
+                                    [deviceList]="devices" 
+                                    (onDeviceSelected)="deviceWasSelected($event)" 
+                                >
+                                </device-list>
+
+                                <!--<tr table-cmp [deviceList]="devices" 
+                                    (onDeviceSelected)="deviceWasSelected($event)" 
+                                >
+                                <!--<*ngFor="#dev of deviceList"  >-->
+
+                                    <!--<td> {{ dev.addr }} </td>-->
+                                    <!--<td> {{ dev.CameraName }} </td>-->
+                                    <!--<td>1</td><td>1</td>
                                     <td>$36,738</td>
                                     <td>Niger</td>
                                     <td>Oud-Turnhout</td>
-                                    <td>Oud-Turnhout</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Minerva Hooper</td>
-                                    <td>$23,789</td>
-                                    <td>Curaçao</td>
-                                    <td>Sinaai-Waas</td>
-                                    <td>Oud-Turnhout</td>
-                                </tr>
+                                    <td>Oud-Turnhout</td>-->
+                                    
+                                <!--</tr>-->
+                            <!--</tbody>
                                 
-                            </tbody>
-                        </table>
-
+                        </table>-->
                     </div>
                 </div>
             </div>

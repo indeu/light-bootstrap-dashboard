@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Device = (function () {
-    function Device(addr, name, startTime, dueTime, status, token) {
+    function Device(addr, name, startTime, endTime, status, token) {
         this.addr = addr;
         this.name = name;
         this.startTime = startTime;
-        this.dueTime = dueTime;
+        this.endTime = endTime;
         this.status = status;
         this.token = token;
     }

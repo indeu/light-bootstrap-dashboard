@@ -1,14 +1,8 @@
-import { Component, OnInit,AfterViewInit,trigger,state,style,transition,animate,keyframes,EventEmitter,NgModule } from '@angular/core';
-
-import { Http, Response } from '@angular/http';
+import { Component, OnInit,AfterViewInit,trigger,state,style,transition,animate,keyframes,EventEmitter,NgModule,Input, Output } from '@angular/core';
+import { Http, Response, RequestOptions } from '@angular/http';
+import { Headers } from '@angular/http';
 
 import { Device } from './device.model';
-
-// import { DeviceListComponent } from './deviceList.component';
-
-// @NgModule({ 
-//     declarations: [ DeviceListComponent ]
-// })
 
 @Component({
     moduleId: module.id,
@@ -56,8 +50,6 @@ import { Device } from './device.model';
     ]
 })
 
-
-
 export class TableComponent{ 
 
     //http: Http;
@@ -65,34 +57,74 @@ export class TableComponent{
     data: Object; 
     loading: boolean;
 
-    //@Input() deviceList: Device[];
-    devices :Device[];
+    @Input() deviceList: Device[];
+    @Output() onDeviceSelected: EventEmitter<Device>;
+
+    devices :Device[] = [];
 
     constructor(private http: Http) { 
         
-        //this.http = http;
-        
-        // this.devices = [
-        // new Device(
-        // '11.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf'),
-        // new Device(
-        // '22.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf'),
-        // new Device(
-        // '33.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf')
-        // ];
+        this.http = http;
 
-        this.http.request('http://aaaaaa') .subscribe((res: Response) => {
-            this.data = res.json();
+        this.onDeviceSelected = new EventEmitter();
 
-            console.log('data : ' + this.data );
-            //this.devices = this.data['db'];
+        let link = 'http://nodejs-mongo-persistent-checkmd.7e14.starter-us-west-2.openshiftapps.com/';
+        let apiLink = link + 'getalldb';
 
-            this.loading = false; 
-        });
 
+        let headers = new Headers({'Access-Control-Allow-Origin' : '*', 'Content-type' : 'application/json' }); 
+        let options = new RequestOptions({ headers: headers }); 
+
+        console.log('get http : ' + apiLink );
+
+        //this.http.get('http://.../test.php') .subscribe(data => data.json());
+
+        let req = this.http.get(apiLink);//, options);
+
+        req.subscribe(
+            response => { 
+
+                this.data = response.json();
+
+                this.loading = false; 
+
+                interface device {
+                    addr: string,
+                    name: string,
+                    startTime: string,
+                    endTime: string,
+                    status: string,
+                    token: string
+                };
+
+                console.log('this.data : ' + this.data['db']);
+
+                interface MyObj {
+                    name: string
+                    description: string
+                }
+
+                let obj: { dev: device[] } = JSON.parse(this.data['db'].toString());
+                
+                
+                console.log( obj );
+                
+                for(var i = 0; i < obj.length ; i++){
+                    this.devices.push( 
+                        new Device(obj[i].addr.replace("1", "*").replace("3", "*").replace("4", "*").replace("2", "*").replace("22", "*").replace("9.", "*."), obj[i].name, obj[i].startTime, obj[i].endTime, obj[i].status, obj[i].token )
+                    );
+                }
+                
+            },
+            err => this.handleErrorObservable(err)
+        );
     }
-
-    // deviceWasSelected(device: Device): void { 
-    //     console.log('Product clicked: ', device);
-    // }
+    
+    private handleErrorObservable (error: Response | any) {
+        console.error(error.message || error);
+        return null;
+    } 
+    deviceWasSelected(device: Device): void { 
+        console.log('Product clicked: ', device);
+    }
 }
