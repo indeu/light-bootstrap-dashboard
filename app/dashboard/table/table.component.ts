@@ -58,7 +58,7 @@ export class TableComponent{
     loading: boolean;
 
     @Input() deviceList: Device[];
-    @Output() onDeviceSelected: EventEmitter<Device>;
+    //@Output() onDeviceSelected: EventEmitter<Device>;
 
     devices :Device[] = [];
 
@@ -66,7 +66,7 @@ export class TableComponent{
         
         this.http = http;
 
-        this.onDeviceSelected = new EventEmitter();
+        //this.onDeviceSelected = new EventEmitter();
 
         let link = 'http://nodejs-mongo-persistent-checkmd.7e14.starter-us-west-2.openshiftapps.com/';
         let apiLink = link + 'getalldb';
@@ -138,7 +138,7 @@ export class TableComponent{
         console.error(error.message || error);
         return null;
     } 
-    deviceWasSelected(device: Device): void { 
-        console.log('Product clicked: ', device);
-    }
+    // deviceWasSelected(device: Device): void { 
+    //     console.log('Product clicked: ', device);
+    // }
 }

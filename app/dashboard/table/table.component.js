@@ -17,9 +17,10 @@ var TableComponent = (function () {
     function TableComponent(http) {
         var _this = this;
         this.http = http;
+        //@Output() onDeviceSelected: EventEmitter<Device>;
         this.devices = [];
         this.http = http;
-        this.onDeviceSelected = new core_1.EventEmitter();
+        //this.onDeviceSelected = new EventEmitter();
         var link = 'http://nodejs-mongo-persistent-checkmd.7e14.starter-us-west-2.openshiftapps.com/';
         var apiLink = link + 'getalldb';
         var headers = new http_2.Headers({ 'Access-Control-Allow-Origin': '*', 'Content-type': 'application/json' });
@@ -53,19 +54,12 @@ var TableComponent = (function () {
         console.error(error.message || error);
         return null;
     };
-    TableComponent.prototype.deviceWasSelected = function (device) {
-        console.log('Product clicked: ', device);
-    };
     return TableComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Array)
 ], TableComponent.prototype, "deviceList", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], TableComponent.prototype, "onDeviceSelected", void 0);
 TableComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
