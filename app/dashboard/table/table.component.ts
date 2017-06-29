@@ -104,13 +104,18 @@ export class TableComponent{
                     description: string
                 }
 
-                let obj: { dev: device[] } = JSON.parse(this.data['db'].toString());
-                
+                let obj : { dev: device[] } = JSON.parse(this.data['db'].toString());
                 
                 console.log( obj );
+
+                //var a = (Array)(obj).length;
                 
-                for(var i = 0; i < obj.length ; i++){
-                    
+                var i = 0;
+                //for(var i = 0; i < a ; i++){
+                while (true) {
+                    if ( obj[i] == null )
+                        break;
+
                     var date_start = new Date(null);
                     date_start.setSeconds(obj[i].startTime / 1000);
                     var date_end = new Date(null);
@@ -121,6 +126,7 @@ export class TableComponent{
                                    obj[i].name, date_start.toISOString().substr(11, 8), date_end.toISOString().substr(11, 8), 
                                    obj[i].status, obj[i].token )
                     );
+                    i++;
                 }
                 
             },

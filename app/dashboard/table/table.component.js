@@ -34,12 +34,18 @@ var TableComponent = (function () {
             console.log('this.data : ' + _this.data['db']);
             var obj = JSON.parse(_this.data['db'].toString());
             console.log(obj);
-            for (var i = 0; i < obj.length; i++) {
+            //var a = (Array)(obj).length;
+            var i = 0;
+            //for(var i = 0; i < a ; i++){
+            while (true) {
+                if (obj[i] == null)
+                    break;
                 var date_start = new Date(null);
                 date_start.setSeconds(obj[i].startTime / 1000);
                 var date_end = new Date(null);
                 date_end.setSeconds(obj[i].endTime / 1000);
                 _this.devices.push(new device_model_1.Device(obj[i].addr.replace("1", "*").replace("3", "*").replace("4", "*").replace("2", "*").replace("22", "*").replace("9.", "*."), obj[i].name, date_start.toISOString().substr(11, 8), date_end.toISOString().substr(11, 8), obj[i].status, obj[i].token));
+                i++;
             }
         }, function (err) { return _this.handleErrorObservable(err); });
     }
