@@ -10,7 +10,7 @@ import { Device } from './device.model';
 export class DeviceListComponent {
 
     @Input() deviceList:Device[];
-    @Output() onDeviceSelected: EventEmitter<Device>;
+    //@Output() onDeviceSelected: EventEmitter<Device>;
     
     devices :Device[];
 
@@ -25,11 +25,11 @@ export class DeviceListComponent {
         //     '33.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf')
         // ]; 
 
-         this.onDeviceSelected = new EventEmitter();
+         //this.onDeviceSelected = new EventEmitter();
      }
 
-    deviceWasSelected(device: Device): void { 
-        console.log('Product clicked: ', device);
-    }
+    // deviceWasSelected(device: Device): void { 
+    //     console.log('Product clicked: ', device);
+    // }
 
 }

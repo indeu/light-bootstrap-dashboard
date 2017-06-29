@@ -110,8 +110,16 @@ export class TableComponent{
                 console.log( obj );
                 
                 for(var i = 0; i < obj.length ; i++){
+                    
+                    var date_start = new Date(null);
+                    date_start.setSeconds(obj[i].startTime / 1000);
+                    var date_end = new Date(null);
+                    date_end.setSeconds(obj[i].endTime / 1000);
+
                     this.devices.push( 
-                        new Device(obj[i].addr.replace("1", "*").replace("3", "*").replace("4", "*").replace("2", "*").replace("22", "*").replace("9.", "*."), obj[i].name, obj[i].startTime, obj[i].endTime, obj[i].status, obj[i].token )
+                        new Device(obj[i].addr.replace("1", "*").replace("3", "*").replace("4", "*").replace("2", "*").replace("22", "*").replace("9.", "*."), 
+                                   obj[i].name, date_start.toISOString().substr(11, 8), date_end.toISOString().substr(11, 8), 
+                                   obj[i].status, obj[i].token )
                     );
                 }
                 
@@ -119,7 +127,7 @@ export class TableComponent{
             err => this.handleErrorObservable(err)
         );
     }
-    
+
     private handleErrorObservable (error: Response | any) {
         console.error(error.message || error);
         return null;

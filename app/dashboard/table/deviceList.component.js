@@ -20,21 +20,14 @@ var DeviceListComponent = (function () {
         //     new Device(
         //     '33.12.12.12','Black Running Shoes', '0', '0', 'ON', 'oiewfoweijfoiwejf')
         // ]; 
-        this.onDeviceSelected = new core_1.EventEmitter();
+        //this.onDeviceSelected = new EventEmitter();
     }
-    DeviceListComponent.prototype.deviceWasSelected = function (device) {
-        console.log('Product clicked: ', device);
-    };
     return DeviceListComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Array)
 ], DeviceListComponent.prototype, "deviceList", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], DeviceListComponent.prototype, "onDeviceSelected", void 0);
 DeviceListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
